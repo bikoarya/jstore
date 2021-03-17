@@ -3,6 +3,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Models extends CI_Model
 {
+    function makeup($id) 
+    {
+        $this->db->select('*');
+        $this->db->where('id_kategori=', $id);
+        return $this->db->get('t_barang')->num_rows();
+    }
     function get($tabel)
     {
         return $this->db->get($tabel)->result_array();
