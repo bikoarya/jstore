@@ -581,3 +581,52 @@ $("#dataKategori").on('click', '.hapusKategori', function () {
 		}
 	});
 });
+
+// Tambah Barang
+$("#dataBarang").load(site_url + "Master/Barang/showData");
+$("#simpanBarang").click(function () {
+	$("#formBarang").validate({
+		rules: {
+			txtNamaBarang: {
+				required: true
+			},
+			txtDeskripsi: {
+				required: true
+			},
+			txtKategori: {
+				required: true
+			},
+			txtHarga: {
+				required: true
+			},
+			gambar: {
+				required: true
+			}
+		},
+		messages: {
+			txtNamaBarang: {
+				required: "Masukkan nama barang."
+			},
+			txtDeskripsi: {
+				required: "Masukkan deskripsi."
+			},
+			txtKategori: {
+				required: "Pilih kategori."
+			},
+			txtHarga: {
+				required: "Masukkan harga."
+			},
+			gambar: {
+				required: "Masukkan gambar."
+			}
+		},
+		errorElement: "span",
+		errorPlacement: function (error, element) {
+			error.addClass("invalid-feedback");
+			element.closest(".form-group").append(error);
+		},
+		unhighlight: function (element, errorClass, validClass) {
+			$(element).removeClass("is-invalid");
+		}
+	});
+});

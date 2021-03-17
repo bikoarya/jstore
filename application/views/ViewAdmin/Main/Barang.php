@@ -38,7 +38,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="formBarang">
+                <form id="formBarang" action="<?= site_url('Master/Barang/insert'); ?>" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="txtNamaBarang">Nama Barang</label>
                         <input type="text" class="form-control" name="txtNamaBarang" id="txtNamaBarang" placeholder="Nama Barang" autocomplete="off">
@@ -63,7 +63,7 @@
                     <label for="gambar">Gambar</label>
                     <div class="input-group mb-3 w-50">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="gambar" id="gambar" aria-describedby="inputGroupFileAddon01" accept="image/*" onchange="loadFile(event)">
+                            <input type="file" class="custom-file-input" name="gambar" id="gambar" aria-describedby="inputGroupFileAddon01" onchange="loadFile(event)">
                             <label class="custom-file-label" for="gambar">Choose file</label>
                         </div>
                     </div>
