@@ -14,12 +14,12 @@
 							<div class="item active">
 								<div class="col-sm-6">
 									<h1><span>J</span>-STORE</h1>
-									<h2>Free E-Commerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+									<h2>Eksklusif beauty cosmetic</h2>
+									<p>Rahasia cantik yang aman bagi kulit anda</p>
 									<button type="button" class="btn btn-default get">Shop Now <i class="fa fa-angle-right"></i></button>
 								</div>
 								<div class="col-sm-6">
-									<img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
+									<img src="<?=base_url('assets/images/results/Carosel1.jpg')?>" class="girl img-responsive" alt="" />
 									<img src="images/home/pricing.png"  class="pricing" alt="" />
 								</div>
 							</div>
@@ -31,7 +31,7 @@
 									<button type="button" class="btn btn-default get">Shop Now <i class="fa fa-angle-right"></i></button>
 								</div>
 								<div class="col-sm-6">
-									<img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
+									<img src="<?=base_url('assets/images/results/Carosel2.jpg')?>" class="girl img-responsive" alt="" />
 									<img src="images/home/pricing.png"  class="pricing" alt="" />
 								</div>
 							</div>
@@ -44,7 +44,7 @@
 									<button type="button" class="btn btn-default get">Shop Now <i class="fa fa-angle-right"></i></button>
 								</div>
 								<div class="col-sm-6">
-									<img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
+									<img src="<?=base_url('assets/images/results/Carosel3.jpg')?>" class="girl img-responsive" alt="" />
 									<img src="images/home/pricing.png" class="pricing" alt="" />
 								</div>
 							</div>
@@ -143,7 +143,7 @@
 									  <div class="modal-content">
 										<div class="modal-header">
 										  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-										  <h4 class="modal-title" id="myModalLabel">Detail Barang</h4>
+										  <h4 class="modal-title" id="myModalLabel">Category <font class="text-danger"><?=$ctg['nama_kategori']?></font></h4>
 										</div>
 										<div class="modal-body">
 											<div class="container">
@@ -166,6 +166,7 @@
 																<h2>Rp.<?=$barangmuncul['harga']?></h2>
 																	<p><?=$barangmuncul['nama_barang']?></p>
 																	<br>
+                                                                    
 																	<p class="text-danger" style="font-weight: bold;">Detail :</p>
 																	<p><?=$barangmuncul['deskripsi']?></p>
 																	<br>
@@ -222,7 +223,7 @@
 												<div class="productinfo text-center">
 													<img src="<?=base_url('assets/images/results/'.$brg['gambar'])?>" alt="" />
 													<h2>Rp.<?=$brg['harga']?></h2>
-													<p>Easy Polo Black Edition</p>
+													<p><?=$brg['nama_barang']?></p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
 												
@@ -247,7 +248,7 @@
 												<div class="productinfo text-center">
 													<img src="<?=base_url('assets/images/results/'.$brg['gambar'])?>" alt="" />
 													<h2>Rp.<?=$brg['harga']?></h2>
-													<p>Easy Polo Black Edition</p>
+													<p><?=$brg['nama_barang']?></p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
 												
