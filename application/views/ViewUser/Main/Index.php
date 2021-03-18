@@ -14,7 +14,7 @@
 							<div class="item active">
 								<div class="col-sm-6">
 									<h1><span>J</span>-STORE</h1>
-									<h2>Eksklusif beauty cosmetic</h2>
+									<h2>Eksklusif Beauty Cosmetic</h2>
 									<p>Rahasia cantik yang aman bagi kulit anda</p>
 									<button type="button" class="btn btn-default get">Shop Now <i class="fa fa-angle-right"></i></button>
 								</div>
@@ -132,7 +132,7 @@
 												 
 												<h2>Rp.<?=$barangmuncul['harga']?></h2>
 												<p><?=$barangmuncul['nama_barang']?></p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+												<a data-toggle="modal" data-target="#myModal<?=$tes?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Buy Now</a>
 											</div>
 											
 										</div>
@@ -144,7 +144,7 @@
 									  <div class="modal-content">
 										<div class="modal-header">
 										  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-										  <h4 class="modal-title" id="myModalLabel">Category <font class="text-danger"><?=$ctg['nama_kategori']?></font></h4>
+										  <h4 class="modal-title" id="myModalLabel"><?=$ctg['nama_kategori']?></h4>
 										</div>
 										<div class="modal-body">
 											<div class="container">
@@ -155,7 +155,7 @@
 															<div class="col-sm-3">
 																<div class="product-image-wrapper">
 																	<div class="single-products">
-																		<div class="productinfo text-center">
+																		<div class="productinfo text-center align-items-center">
 																			<!-- Modal -->
 																			<img src="<?=base_url('assets/images/results/'.$barangmuncul['gambar'])?>" alt="" />
 																				</div>
@@ -168,8 +168,10 @@
 																	<p><?=$barangmuncul['nama_barang']?></p>
 																	<br>
                                                                     
-																	<p class="text-danger" style="font-weight: bold;">Detail :</p>
+																	<p class="text-danger" style="font-weight: bold;">Deskripsi :</p>
 																	<p><?=$barangmuncul['deskripsi']?></p>
+																	<p class="text-title" style="font-weight: bold;">Stok : <?=$barangmuncul['stok']?></p>
+																	
 																	<br>
 																	
 															</div>
@@ -181,9 +183,13 @@
 											
 										</div>
 										<div class="modal-footer">
+										<form action="">
+											<input type="number" min="1" placeholder="QTY" name="qty" class="input-list-group-item-action" style="padding:5px;margin-right:5px;">
 										  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-										  <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											
+										  <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Buy Now</a>
+
+										</form>
+										  
 										</div>
 									  </div><!-- /.modal-content -->
 									</div><!-- /.modal-dialog -->
@@ -274,3 +280,77 @@
 		</div>
 	</section>
 	
+
+<!------ Modal ------>
+<div class="modal fade" id="IsiForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+									  <div class="modal-content">
+										<div class="modal-header">
+										  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+										  <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+										</div>
+										<div class="modal-body">
+											<div class="container">
+												<div class="row">
+													<div class="col-sm-3" >
+													<div class="col-sm-12" class="login-form" style="padding:0">
+										<section ><!--form-->
+											<div class="container">
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="login-form"><!--login form-->
+															<h2>Barang yang dibeli <hr></h2>
+															<div class="col-sm-4">
+																<p>Unive</p>
+															</div>
+															<div class="col-sm-4">
+																<p>x2</p>
+																</div>
+															<div class="col-sm-4">
+																<p>Rp.60.000</p>
+															</div>
+															
+															<div class="col-sm-12" style="padding:0"><hr>Total : <button type="button" class="btn btn-default" data-dismiss="modal">Rp.60000</button>
+															</div>
+														</div><!--/login form-->
+													</div>
+													
+												</div>
+											</div>
+										</section><!--/form-->
+											</div>
+												</div>	
+													<div class="col-sm-3">
+									<section ><!--form-->
+										<div class="container">
+											<div class="row">
+												<div class="col-sm-3">
+													<div class="login-form"><!--login form-->
+														<h2>Isi Form Transaksi</h2>
+														<form action="#">
+															<input type="text" placeholder="Nama" style="width:85%"/>
+															<input type="text" placeholder="Telp (WA)" style="width:85%"/>
+															<input type="text" placeholder="Alamat" style="width:85%"/>
+															<button type="submit" class="btn btn-default">Check Out</button>
+														</form>
+													</div><!--/login form-->
+												</div>
+												
+											</div>
+										</div>
+									</section><!--/form-->
+													</div>
+													
+													</div>
+											
+												
+											</div>
+											
+										</div>
+										<div class="modal-footer">
+										  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										  
+										</div>
+									  </div><!-- /.modal-content -->
+									</div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->

@@ -13,6 +13,7 @@
                                 <th>Deskripsi</th>
                                 <th>Kategori</th>
                                 <th>Harga</th>
+                                <th>Stok</th>
                                 <th>Gambar</th>
                                 <th>Aksi</th>
                             </tr>
@@ -59,6 +60,10 @@
                     <div class="form-group">
                         <label for="txtHarga">Harga</label>
                         <input type="text" class="form-control" name="txtHarga" id="txtHarga" placeholder="Harga" autocomplete="off">
+                    </div>
+                    <div class="form-group w-25">
+                        <label for="txtStok">Stok</label>
+                        <input type="number" class="form-control" name="txtStok" id="txtStok" placeholder="Stok" min="1" autocomplete="off">
                     </div>
                     <label for="gambar">Gambar</label>
                     <div class="input-group mb-3 w-50">

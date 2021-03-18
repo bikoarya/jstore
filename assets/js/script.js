@@ -599,6 +599,9 @@ $("#simpanBarang").click(function () {
 			txtHarga: {
 				required: true
 			},
+			txtStok: {
+				required: true
+			},
 			gambar: {
 				required: true
 			}
@@ -615,6 +618,9 @@ $("#simpanBarang").click(function () {
 			},
 			txtHarga: {
 				required: "Masukkan harga."
+			},
+			txtStok: {
+				required: "Masukkan stok."
 			},
 			gambar: {
 				required: "Masukkan gambar."
