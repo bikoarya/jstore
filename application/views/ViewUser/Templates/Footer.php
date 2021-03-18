@@ -162,13 +162,19 @@
 		</div>
 		
 	</footer><!--/Footer-->
-	
-    
+    <script src="<?= base_url('assets/spinner/src/input-spinner.js'); ?>"></script>
     <script src="<?= base_url('assets/user/js/jquery.js'); ?>"></script>
 	<script src="<?= base_url('assets/user/js/price-range.js'); ?>"></script>
     <script src="<?= base_url('assets/user/js/jquery.scrollUp.min.js'); ?>"></script>
 	<script src="<?= base_url('assets/user/js/bootstrap.min.js'); ?>"></script>
     <script src="<?= base_url('assets/user/js/jquery.prettyPhoto.js'); ?>"></script>
     <script src="<?= base_url('assets/user/js/main.js'); ?>"></script>
+	<script src="<?= base_url('assets/js/custom.js'); ?>"></script>
+
+	<script>
+		$("input[type='number']").inputSpinner();
+	</script>
+
+	
 </body>
 </html>
