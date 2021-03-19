@@ -6,7 +6,7 @@ class Contact extends CI_Controller
     public function index()
     {
         $data['title']="Jstore | Contact";
-        $data['cart']="";
+        $data['about']="";
         $data['contact']="active";
         $data['home']="";
         $this->load->view('ViewUser/Templates/Header',$data);

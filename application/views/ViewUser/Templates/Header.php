@@ -69,8 +69,8 @@
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="<?=site_url('User/Home')?>" class="<?=$home?>">Home</a></li>
-								<li><a href="<?=site_url('User/Cart')?>" class="<?=$cart?>">Cart</a></li>
 								<li><a href="<?=site_url('User/Contact')?>" class="<?=$contact?>">Contact</a></li>
+								<li><a href="<?=site_url('User/About')?>" class="<?=$about?>">About Us</a></li>
 							</ul>
 						</div>
 					</div>
