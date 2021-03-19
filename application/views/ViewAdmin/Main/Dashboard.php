@@ -20,20 +20,20 @@
                                 <i class="mdi mdi-cart icon-lg mr-4 text-primary"></i>
                                 <div class="d-flex flex-column justify-content-around">
                                     <small class="mb-1 text-muted">Barang</small>
-                                    <h4 class="mr-2 mb-0">8</h4>
+                                    <h4 class="mr-2 mb-0"><?= $this->model->countBarang(); ?></h4>
                                 </div>
                             </div>
                             <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                                 <i class="mdi mdi-currency-usd mr-3 icon-lg text-danger"></i>
                                 <div class="d-flex flex-column justify-content-around">
-                                    <small class="mb-1 text-muted">Revenue</small>
+                                    <small class="mb-1 text-muted">Customer</small>
                                     <h5 class="mr-2 mb-0">$577545</h5>
                                 </div>
                             </div>
                             <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                                 <i class="mdi mdi-eye mr-3 icon-lg text-success"></i>
                                 <div class="d-flex flex-column justify-content-around">
-                                    <small class="mb-1 text-muted">Total views</small>
+                                    <small class="mb-1 text-muted">Kategori</small>
                                     <h5 class="mr-2 mb-0">9833550</h5>
                                 </div>
                             </div>

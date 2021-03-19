@@ -69,7 +69,7 @@ class Barang extends CI_Controller
 				<td>' . $value['deskripsi'] . '</td>
 				<td>' . $value['nama_kategori'] . '</td>
 				<td>Rp. ' . number_format($value['harga'], 0, ',', '.') . '</td>
-				<td>' . $value['gambar'] . '</td>
+				<td><img src="' . base_url('assets/images/results/') . $value['gambar'] . '"style="width: 100px; border-radius: 0; height: 100px"</td>
 				<td> <a href="javascript:void(0);" class="text-success editBarang" data-id_barang="' . $value['id_barang'] . '" data-deskripsi="' . $value['deskripsi'] . '" data-id_kategori="' . $value['id_kategori'] . '" data-harga="' . $value['harga'] . '" data-gambar="' . $value['gambar'] . '"><p class="text-primary d-inline mr-3" data-toggle="modal" data-target="#editBarang"><i class="fas fa-edit" style="font-size: 18px" data-placement="bottom" title="Edit"></i></p></a> <a href="javascript:void(0)" class="text-danger hapusBarang" data-id_barang="' . $value['id_barang'] . '"><p class="text-danger d-inline"><i class="fas fa-trash-alt text-danger" style="font-size: 18px" data-placement="bottom" title="Hapus"></i></p></a></td>
 				</tr>';
         }

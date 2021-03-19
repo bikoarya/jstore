@@ -40,14 +40,14 @@
                                     <?= form_error('txtPassword', '<small class="text-danger">', '</small>'); ?>
                                 </div>
                                 <div class="mt-3">
-                                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" id="btnLogin">SIGN IN</button>
+                                    <button type="submit" class="btn btn-block btn-primary btn-lg mb-4 font-weight-medium auth-form-btn" id="btnLogin">SIGN IN</button>
                                 </div>
-                                <div class="my-2 d-flex justify-content-center align-items-center">
+                                <!-- <div class="my-2 d-flex justify-content-center align-items-center">
                                     <a href="#" class="auth-link text-black mt-4 text-center">Forgot password?</a>
-                                </div>
-                                <div class="text-center mt-4 font-weight-light">
-                                    Don't have an account? <a href="register.html" class="text-primary">Create</a>
-                                </div>
+                                </div> -->
+                                <!-- <div class="text-center mt-4 font-weight-light">
+                                    Don't have an account? <a href="<?= site_url("Register"); ?>" class="text-primary">Create</a>
+                                </div> -->
                             </form>
                         </div>
                     </div>

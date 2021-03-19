@@ -15,7 +15,7 @@ class Login extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Jstore | Login';
-            $this->load->view('Login/Index', $data);
+            $this->load->view('Auth/Login', $data);
         } else {
             $this->_Masuk();
         }
