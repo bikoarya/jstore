@@ -56,3 +56,11 @@ $(document).ready(function() {
 	});
 
 });
+
+$("#plus").click(function() {
+	// let plus = $("#plus");
+	let value = $("#value").val();
+
+	value = value + 1;
+
+});
