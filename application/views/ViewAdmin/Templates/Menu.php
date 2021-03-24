@@ -29,7 +29,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="<?= site_url('Master/Transaksi'); ?>">
                         <i class="mdi mdi-currency-usd menu-icon"></i>
                         <span class="menu-title">Transaksi</span>
                     </a>

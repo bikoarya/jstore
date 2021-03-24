@@ -59,6 +59,10 @@
 /*-------------------------------------------------------------------*/
 /* === SCSS Compass Functions === */
 
+html {
+	scroll-behavior: smooth;
+}
+
 .mdi-account-circle {
 	font-size: 32px;
 	color: #4475e9;

@@ -636,3 +636,26 @@ $("#simpanBarang").click(function () {
 		}
 	});
 });
+
+// Kirim Value Edit Barang
+$(document).on('click', '.editBarang', function () {
+	var id_barang = $(this).attr('data-id_barang');
+	var barang = $(this).attr('data-nama_barang');
+	var deskripsi = $(this).attr('data-deskripsi');
+	var kategori = $(this).attr('data-kategori');
+	var harga = $(this).attr('data-harga');
+	var stok = $(this).attr('data-stok');
+	var gambar = $(this).attr('data-gambar');
+
+	$("#id_barang").val(id_barang);
+	$("#txtEditBarang").val(barang);
+	$("#txtEditDeskripsi").val(deskripsi);
+	$("#txtEditHarga").val(harga);
+	$("#txtEditStok").val(stok);
+	$("#txtEditKategori")
+	.val(kategori)
+	.trigger("change");
+	$("#editGambar").val(gambar);
+});
+
+$("#dataTransaksi").load(site_url + "Master/Transaksi/showData");

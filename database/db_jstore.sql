@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 19 Mar 2021 pada 08.30
--- Versi server: 5.7.24
--- Versi PHP: 7.2.19
+-- Generation Time: Mar 22, 2021 at 11:46 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_admin`
+-- Table structure for table `t_admin`
 --
 
 CREATE TABLE `t_admin` (
@@ -36,7 +36,7 @@ CREATE TABLE `t_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `t_admin`
+-- Dumping data for table `t_admin`
 --
 
 INSERT INTO `t_admin` (`id_admin`, `username`, `nama_lengkap`, `id_role`, `password`) VALUES
@@ -48,7 +48,7 @@ INSERT INTO `t_admin` (`id_admin`, `username`, `nama_lengkap`, `id_role`, `passw
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_barang`
+-- Table structure for table `t_barang`
 --
 
 CREATE TABLE `t_barang` (
@@ -62,20 +62,20 @@ CREATE TABLE `t_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `t_barang`
+-- Dumping data for table `t_barang`
 --
 
 INSERT INTO `t_barang` (`id_barang`, `nama_barang`, `deskripsi`, `id_kategori`, `harga`, `gambar`, `stok`) VALUES
-(10, 'SkinWhite', 'Kosmetik memiliki sejarah yang panjang dan sudah dikenal keberadaannya oleh peradaban manusia sejak 6000 tahun silam. Bahkan salah seorang filsuf, Plautus mengatakan bahwa wanita tanpa adanya riasan wajah dapat disamakan dengan makanan tanpa garam.', 2, 50000, 'IMG_20201031_092726_746.jpg', 5),
-(11, 'Body Scrub', 'Kosmetik memiliki sejarah yang panjang dan sudah dikenal keberadaannya oleh peradaban manusia sejak 6000 tahun silam. Bahkan salah seorang filsuf, Plautus mengatakan bahwa wanita tanpa adanya riasan wajah dapat disamakan dengan makanan tanpa garam.', 1, 40000, 'IMG_20200930_114244_444.jpg', 3),
-(12, 'ParaSun', 'Kosmetik memiliki sejarah yang panjang dan sudah dikenal keberadaannya oleh peradaban manusia sejak 6000 tahun silam. Bahkan salah seorang filsuf, Plautus mengatakan bahwa wanita tanpa adanya riasan wajah dapat disamakan dengan makanan tanpa garam.', 3, 50000, 'IMG_20201031_092910_764.jpg', 0),
-(13, 'Universali', 'Sangat bagus untuk kulit yang sering terpancar matahari', 6, 60000, 'IMG_20201114_203141_894.jpg', 0),
-(15, 'u', 'u', 2, 40000, 'IMG_20201031_092910_765.jpg', 2);
+(16, 'Scarlett', 'Mencerahkan wajah', 2, 150000, 'IMG_20201117_121532_563.jpg', 150),
+(17, 'Yujaniacin', 'Menghilangkan jerawat', 2, 75000, 'IMG_20201117_182611_076.jpg', 50),
+(18, 'Himalaya', 'Taek cok', 1, 250000, 'himalaya.png', 20),
+(19, 'Doddy Jancok', 'asfsafas', 3, 500000, 'IMG_20201114_203554_415.jpg', 3),
+(20, 'adsafsa', 'asfsa', 2, 3000000, 'IMG_20201117_180250_212.jpg', 7);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_kategori`
+-- Table structure for table `t_kategori`
 --
 
 CREATE TABLE `t_kategori` (
@@ -84,19 +84,19 @@ CREATE TABLE `t_kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `t_kategori`
+-- Dumping data for table `t_kategori`
 --
 
 INSERT INTO `t_kategori` (`id_kategori`, `nama_kategori`) VALUES
 (1, 'Make Up'),
 (2, 'Skincare'),
 (3, 'Hair Care'),
-(6, 'Body');
+(6, 'Body Care');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_role`
+-- Table structure for table `t_role`
 --
 
 CREATE TABLE `t_role` (
@@ -105,7 +105,7 @@ CREATE TABLE `t_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `t_role`
+-- Dumping data for table `t_role`
 --
 
 INSERT INTO `t_role` (`id_role`, `nama_role`) VALUES
@@ -115,7 +115,7 @@ INSERT INTO `t_role` (`id_role`, `nama_role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_transaksi`
+-- Table structure for table `t_transaksi`
 --
 
 CREATE TABLE `t_transaksi` (
@@ -129,80 +129,79 @@ CREATE TABLE `t_transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `t_transaksi`
+-- Dumping data for table `t_transaksi`
 --
 
 INSERT INTO `t_transaksi` (`id_transaksi`, `id_barang`, `qty`, `nama`, `telp`, `alamat`, `tanggal`) VALUES
-(1, 11, 1, 'Stephen', '08950349650', 'Jl Arjuno gg 3, Klojen, Malang, Jawa Timur', '2021-03-19'),
-(2, 10, 1, 'Tes', '096494893438', 'Jl Galunggung, Wagir, Malang, Jawa Timur', '2021-03-19');
+(5, 18, 2, 'Biko Arya Maulana', '085233496058', 'Malang, Kedungkandang, Malang, Jawa Timur', '2021-03-21');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `t_admin`
+-- Indexes for table `t_admin`
 --
 ALTER TABLE `t_admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indeks untuk tabel `t_barang`
+-- Indexes for table `t_barang`
 --
 ALTER TABLE `t_barang`
   ADD PRIMARY KEY (`id_barang`);
 
 --
--- Indeks untuk tabel `t_kategori`
+-- Indexes for table `t_kategori`
 --
 ALTER TABLE `t_kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indeks untuk tabel `t_role`
+-- Indexes for table `t_role`
 --
 ALTER TABLE `t_role`
   ADD PRIMARY KEY (`id_role`);
 
 --
--- Indeks untuk tabel `t_transaksi`
+-- Indexes for table `t_transaksi`
 --
 ALTER TABLE `t_transaksi`
   ADD PRIMARY KEY (`id_transaksi`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `t_admin`
+-- AUTO_INCREMENT for table `t_admin`
 --
 ALTER TABLE `t_admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `t_barang`
+-- AUTO_INCREMENT for table `t_barang`
 --
 ALTER TABLE `t_barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT untuk tabel `t_kategori`
+-- AUTO_INCREMENT for table `t_kategori`
 --
 ALTER TABLE `t_kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `t_role`
+-- AUTO_INCREMENT for table `t_role`
 --
 ALTER TABLE `t_role`
   MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `t_transaksi`
+-- AUTO_INCREMENT for table `t_transaksi`
 --
 ALTER TABLE `t_transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

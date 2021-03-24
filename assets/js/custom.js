@@ -20,13 +20,10 @@ $(document).ready(function() {
 		allowClear: true,
 		theme: 'bootstrap4'
 	});
-
-});
-
-$("#plus").click(function() {
-	// let plus = $("#plus");
-	let value = $("#value").val();
-
-	value = value + 1;
+	$('.editKategori').select2({
+		placeholder: "Pilih Kategori",
+		allowClear: true,
+		theme: 'bootstrap4'
+	});
 
 });
