@@ -123,7 +123,7 @@
                                 foreach ($user as $barangmuncul) :
                                     $tes++;
                             ?>	
-
+								
 								<div class="col-sm-3">
 									<div class="product-image-wrapper">
 										<div class="single-products">
@@ -204,7 +204,21 @@
 								  </div><!-- /.modal -->
                                 
                                 <?php endforeach; ?>
-                                 
+								<?php
+								$count = $this->db->get_where('t_barang', ['id_kategori' => $ctg['id_kategori']])->num_rows();
+									if($count==0){
+									?>
+										<div class="col-sm-12">
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+                                     		 <h2 style="margin-top:80px;margin-bottom:80px;">Barang Kosong!</h2>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+									<?php }?>
                                 </div>
                         <?php $no++;endforeach; ?>
                                 
@@ -252,7 +266,7 @@
 									<?php 
                                     $lim=1;
                                     foreach($barang as $brg):
-                                    if($lim<4){
+                                    if($lim<4||$lim>6){
                                         
                                     }
                                     else{

@@ -25,6 +25,12 @@ class Transaksi extends CI_Controller
         $output = '';
 
         foreach ($query as $row => $value) {
+            if($value['status']=="Pesanan"){
+                $class = "btn btn-warning btn-sm badge-pill";
+            }else{
+                $class = "btn btn-success btn-sm badge-pill";
+            }
+
             $output .= '
 				<tr>
 				<td>' . ($row + 1) . '</td>
@@ -34,6 +40,7 @@ class Transaksi extends CI_Controller
 				<td>' . $value['nama_barang'] . '</td>
 				<td>' . $value['qty'] . '</td>
 				<td>' . $value['tanggal'] . '</td>
+                <td><button class="'.$class.'">'. $value['status'].'</button></td>
 				<td> <a href="' . 'https://api.whatsapp.com/send?phone=' . $value['telp'] . '&text=Saya%20tertarik%20untuk%20membeli%20produk%20ini%20segera.' . '" class="text-success sendWA" data-id_transaksi="' . $value['id_transaksi'] . '" data-id_barang="' . $value['id_barang'] . '" data-qty="' . $value['qty'] . '" data-nama_cust="' . $value['nama'] . '" data-telp="' . $value['telp'] . '" data-alamat="' . $value['alamat'] . '" data-tanggal="' . $value['tanggal'] . '"><p class="text-primary d-inline mr-4" data-toggle="modal" data-target="#"><i class="mdi mdi-send" style="font-size: 18px" data-placement="bottom" title="Kirim Pesan"></i></p></a> <a href="javascript:void(0);" class="text-danger hapusTransaksi" data-id_transaksi="' . $value['id_transaksi'] . '"><p class="text-danger d-inline"><i class="fas fa-trash-alt text-danger" style="font-size: 18px" data-placement="bottom" title="Hapus"></i></p></a></td>
 				</tr>';
         }
