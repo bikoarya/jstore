@@ -19,7 +19,7 @@
 								<button type="button" class="btn btn-default get">Shop Now <i class="fa fa-angle-right"></i></button>
 							</div>
 							<div class="col-sm-6">
-								<img src="<?= base_url('assets/images/results/Carosel1.jpg') ?>" class="girl img-responsive" alt="" />
+								<img src="<?= base_url('assets/images/results/carousel1.png') ?>" class="girl img-responsive" alt="" />
 							</div>
 						</div>
 						<div class="item">
@@ -31,7 +31,7 @@
 								<button type="button" class="btn btn-default get">Shop Now <i class="fa fa-angle-right"></i></button>
 							</div>
 							<div class="col-sm-6">
-								<img src="<?= base_url('assets/images/results/Carosel2.jpg') ?>" class="girl img-responsive" alt="" />
+								<img src="<?= base_url('assets/images/results/carousel2.png') ?>" class="girl img-responsive" alt="" />
 							</div>
 						</div>
 
