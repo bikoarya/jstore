@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 05, 2021 at 03:07 AM
--- Server version: 5.7.24
--- PHP Version: 7.2.19
+-- Waktu pembuatan: 05 Apr 2021 pada 03.37
+-- Versi server: 5.7.24
+-- Versi PHP: 7.2.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_admin`
+-- Struktur dari tabel `t_admin`
 --
 
 CREATE TABLE `t_admin` (
@@ -36,7 +36,7 @@ CREATE TABLE `t_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_admin`
+-- Dumping data untuk tabel `t_admin`
 --
 
 INSERT INTO `t_admin` (`id_admin`, `username`, `nama_lengkap`, `id_role`, `password`) VALUES
@@ -48,7 +48,7 @@ INSERT INTO `t_admin` (`id_admin`, `username`, `nama_lengkap`, `id_role`, `passw
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_barang`
+-- Struktur dari tabel `t_barang`
 --
 
 CREATE TABLE `t_barang` (
@@ -62,20 +62,20 @@ CREATE TABLE `t_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_barang`
+-- Dumping data untuk tabel `t_barang`
 --
 
 INSERT INTO `t_barang` (`id_barang`, `nama_barang`, `deskripsi`, `id_kategori`, `harga`, `gambar`, `stok`) VALUES
 (22, 'Himalaya', 'Mencerahkan wajah', 2, 150000, 'himalaya.png', 15),
 (24, 'Yuja Niacin', 'Melembabkan kulit ', 6, 75000, 'IMG_20201117_182623_135.jpg', 10),
-(26, 'Beras Kencur', 'Menyehatkan badan', 2, 5000, 'IMG_20201031_092910_766.jpg', 20),
+(26, 'Beras Kencur', 'Menyehatkan badan', 2, 5000, 'IMG_20201031_092910_766.jpg', 19),
 (27, 'Rinso', 'Membersihkan noda membandel', 1, 1000, 'IMG_20201031_092910_764.jpg', 10),
 (28, 'Kiranti', 'Minuman berkhasiat rendah', 3, 4000, 'IMG_20201031_092910_765.jpg', 30);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_kategori`
+-- Struktur dari tabel `t_kategori`
 --
 
 CREATE TABLE `t_kategori` (
@@ -84,7 +84,7 @@ CREATE TABLE `t_kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_kategori`
+-- Dumping data untuk tabel `t_kategori`
 --
 
 INSERT INTO `t_kategori` (`id_kategori`, `nama_kategori`) VALUES
@@ -96,7 +96,7 @@ INSERT INTO `t_kategori` (`id_kategori`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_pesanan`
+-- Struktur dari tabel `t_pesanan`
 --
 
 CREATE TABLE `t_pesanan` (
@@ -105,7 +105,7 @@ CREATE TABLE `t_pesanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_pesanan`
+-- Dumping data untuk tabel `t_pesanan`
 --
 
 INSERT INTO `t_pesanan` (`id_pesanan`, `id_transaksi`) VALUES
@@ -115,12 +115,30 @@ INSERT INTO `t_pesanan` (`id_pesanan`, `id_transaksi`) VALUES
 (76, 36),
 (77, 36),
 (78, 36),
-(79, 36);
+(79, 36),
+(80, 36),
+(81, 37);
+
+--
+-- Trigger `t_pesanan`
+--
+DELIMITER $$
+CREATE TRIGGER `UpdateStok` AFTER INSERT ON `t_pesanan` FOR EACH ROW BEGIN
+	DECLARE stk INT;
+    DECLARE id_brg TEXT;
+	SET id_brg = (SELECT id_barang FROM t_transaksi WHERE id_transaksi = NEW.id_transaksi);
+    SET stk = (SELECT qty FROM t_transaksi WHERE id_transaksi = NEW.id_transaksi);
+    
+    UPDATE t_barang SET stok = stok - stk WHERE id_barang = id_brg; 
+
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_role`
+-- Struktur dari tabel `t_role`
 --
 
 CREATE TABLE `t_role` (
@@ -129,7 +147,7 @@ CREATE TABLE `t_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_role`
+-- Dumping data untuk tabel `t_role`
 --
 
 INSERT INTO `t_role` (`id_role`, `nama_role`) VALUES
@@ -139,7 +157,7 @@ INSERT INTO `t_role` (`id_role`, `nama_role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_transaksi`
+-- Struktur dari tabel `t_transaksi`
 --
 
 CREATE TABLE `t_transaksi` (
@@ -153,91 +171,92 @@ CREATE TABLE `t_transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_transaksi`
+-- Dumping data untuk tabel `t_transaksi`
 --
 
 INSERT INTO `t_transaksi` (`id_transaksi`, `id_barang`, `qty`, `nama`, `telp`, `alamat`, `tanggal`) VALUES
-(36, 26, 1, 'Biko Arya Maulana', '6281259464280', 'Bumiayu, Kedungkandang, Malang, Jawa Timur', '2021-04-05');
+(36, 26, 1, 'Biko Arya Maulana', '6281259464280', 'Bumiayu, Kedungkandang, Malang, Jawa Timur', '2021-04-05'),
+(37, 26, 1, 'Stephen Malik Akbar Imanto', '62895620108861', 'JL Arjuno gg 3, Klojen, Malang, Jawa Timur', '2021-04-05');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `t_admin`
+-- Indeks untuk tabel `t_admin`
 --
 ALTER TABLE `t_admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indexes for table `t_barang`
+-- Indeks untuk tabel `t_barang`
 --
 ALTER TABLE `t_barang`
   ADD PRIMARY KEY (`id_barang`);
 
 --
--- Indexes for table `t_kategori`
+-- Indeks untuk tabel `t_kategori`
 --
 ALTER TABLE `t_kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `t_pesanan`
+-- Indeks untuk tabel `t_pesanan`
 --
 ALTER TABLE `t_pesanan`
   ADD PRIMARY KEY (`id_pesanan`);
 
 --
--- Indexes for table `t_role`
+-- Indeks untuk tabel `t_role`
 --
 ALTER TABLE `t_role`
   ADD PRIMARY KEY (`id_role`);
 
 --
--- Indexes for table `t_transaksi`
+-- Indeks untuk tabel `t_transaksi`
 --
 ALTER TABLE `t_transaksi`
   ADD PRIMARY KEY (`id_transaksi`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `t_admin`
+-- AUTO_INCREMENT untuk tabel `t_admin`
 --
 ALTER TABLE `t_admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `t_barang`
+-- AUTO_INCREMENT untuk tabel `t_barang`
 --
 ALTER TABLE `t_barang`
   MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT for table `t_kategori`
+-- AUTO_INCREMENT untuk tabel `t_kategori`
 --
 ALTER TABLE `t_kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `t_pesanan`
+-- AUTO_INCREMENT untuk tabel `t_pesanan`
 --
 ALTER TABLE `t_pesanan`
-  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
--- AUTO_INCREMENT for table `t_role`
+-- AUTO_INCREMENT untuk tabel `t_role`
 --
 ALTER TABLE `t_role`
   MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `t_transaksi`
+-- AUTO_INCREMENT untuk tabel `t_transaksi`
 --
 ALTER TABLE `t_transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

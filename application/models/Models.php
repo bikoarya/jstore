@@ -9,6 +9,17 @@ class Models extends CI_Model
         $this->db->where('id_kategori=', $id);
         return $this->db->get('t_barang')->num_rows();
     }
+    function getRecomended()
+    {
+        return $this->db->query('SELECT id_barang,
+        nama_barang,
+        deskripsi,
+        harga,
+        gambar,
+        stok,
+        SUM(qty) FROM t_barang a LEFT OUTER JOIN t_transaksi b USING (id_barang) GROUP BY id_barang ORDER BY SUM(qty) DESC LIMIT 6')->result_array();
+    }
+
     function get($tabel)
     {
         return $this->db->get($tabel)->result_array();

@@ -213,85 +213,139 @@
 			<div class="col-md-3">
 
 			</div>
-			<div class="recommended_items">
-				<!--recommended_items-->
-				<h2 class="title text-center">recommended items</h2>
-
-				<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
-					<div class="carousel-inner">
-						<div class="item active">
-							<?php
-							$lim = 1;
-							foreach ($barang as $brg) :
-								if ($lim > 3) {
-								} else {
-							?>
+			<div class="recommended_items"><!--recommended_items-->
+						<h2 class="title text-center">recommended items</h2>
+						
+						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner">
+								<div class="item active">	
+									<?php
+										$recomended = $this->model->getRecomended();
+										$no=1;
+										foreach($recomended as $recom):
+											if($no<4){
+									?>
+									
 									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="<?= base_url('assets/images/results/' . $brg['gambar']) ?>" alt="" />
-													<h2>Rp.<?= $brg['harga'] ?></h2>
-													<p><?= $brg['nama_barang'] ?></p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-												</div>
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<a data-toggle="modal" data-target="#modal<?= $no ?>"><img src="<?= base_url('assets/images/results/' . $recom['gambar']) ?>" alt="" /></a>
 
+												<h2><?= $recom['nama_barang'] ?></h2>
+												<h4>Rp. <?= number_format($recom['harga']) ?></h4>
+												<a data-toggle="modal" data-target="#modal<?= $no ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Buy Now</a>
 											</div>
+
 										</div>
-									</div> <?php };
-										$lim++;
-									endforeach; ?>
-						</div>
-						<div class="item">
-							<?php
-							$lim = 1;
-							foreach ($barang as $brg) :
-								if ($lim < 4 || $lim > 6) {
-								} else {
-							?>
+									</div>
+								</div>
+									<?php };$no++;endforeach; ?>
+									
+								</div>
+								<div class="item">	
+								<?php
+										$recomended = $this->model->getRecomended();
+										$no=1;
+										foreach($recomended as $recom):
+											if($no>3 && $no<7){
+									?>
+									
 									<div class="col-sm-4">
-								<?php };
-								$lim++;
-							endforeach; ?>
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<a data-toggle="modal" data-target="#modal<?= $no ?>"><img src="<?= base_url('assets/images/results/' . $recom['gambar']) ?>" alt="" /></a>
 
+												<h2><?= $recom['nama_barang'] ?></h2>
+												<h4>Rp. <?= number_format($recom['harga']) ?></h4>
+												<a data-toggle="modal" data-target="#modal<?= $no ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Buy Now</a>
+											</div>
+
+										</div>
 									</div>
-									<div class="item">
-										<?php
-										$lim = 1;
-										foreach ($barang as $brg) :
-											if ($lim < 4) {
-											} else {
-										?>
-												<div class="col-sm-4">
-													<div class="product-image-wrapper">
-														<div class="single-products">
-															<div class="productinfo text-center">
-																<img src="<?= base_url('assets/images/results/' . $brg['gambar']) ?>" alt="" />
-																<h2>Rp.<?= $brg['harga'] ?></h2>
-																<p><?= $brg['nama_barang'] ?></p>
-																<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-															</div>
-
-														</div>
-													</div>
-												</div>
-										<?php };
-											$lim++;
-										endforeach; ?>
-
-									</div>
+								</div>
+									<?php };$no++;endforeach; ?>
+								</div>
+							</div>
+							 <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+								<i class="fa fa-angle-left"></i>
+							  </a>
+							  <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+								<i class="fa fa-angle-right"></i>
+							  </a>			
 						</div>
-						<a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-							<i class="fa fa-angle-left"></i>
-						</a>
-						<a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-							<i class="fa fa-angle-right"></i>
-						</a>
-					</div>
-				</div>
-				<!--/recommended_items-->
-
+					</div><!--/recommended_items-->
 			</div>
 		</div>
 	</div>
 </section>
+
+
+<?php
+	$recomended = $this->model->getRecomended();
+	$no=1;
+	foreach($recomended as $recom):
+		
+									?>
+<div class="modal fade" id="modal<?= $no ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+												<h4 class="modal-title" id="myModalLabel">Recomended <?=$no?></h4>
+											</div>
+											<div class="modal-body">
+												<div class="container">
+													<div class="row">
+
+														<div class="tab-content">
+															<div class="tab-pane fade active in" id="body">
+																<div class="col-sm-3">
+																	<div class="product-image-wrapper">
+																		<div class="single-products">
+																			<div class="productinfo text-center align-items-center">
+																				<!-- Modal -->
+																				<img src="<?= base_url('assets/images/results/' . $recom['gambar']) ?>" alt="" />
+																			</div>
+
+																		</div>
+																	</div>
+																</div>
+																<div class="col-sm-3">
+																	<h1 style="font-weight: bold; color: #FEA125"><?= $recom['nama_barang'] ?></h1>
+																	<h4 style="margin-bottom: 30px">Rp. <?= $recom['harga'] ?></h4>
+																	<h5 style="font-weight: bold;">Deskripsi :</h5>
+																	<p><?= $recom['deskripsi'] ?></p>
+																	<p class="text-title" style="font-weight: bold;">Stok : <?= $recom['stok'] ?></p>
+
+																	<br>
+
+																</div>
+															</div>
+														</div>
+
+													</div>
+												</div>
+
+											</div>
+											<div class="modal-footer">
+												<?php
+												$qty = "";
+												$button = "";
+												if ($recom['stok'] == 0) {
+													$qty = "readonly";
+													$button = "disabled";
+												} ?>
+												<form action="<?= site_url('User/Checkout'); ?>" method="POST" enctype="multipart/form-data">
+													<input type="text" value="<?= $recom['id_barang'] ?>" name="id_barang" hidden>
+													<input type="number" min="1" max="<?= $recom['stok'] ?>" value="1" required="true" placeholder="QTY" name="qty" class="input-list-group-item-action" style="padding:5px;margin-left:-85px; position: absolute;" <?= $qty ?>>
+													<button class="btn btn-default add-to-cart" <?= $button ?>><i class="fa fa-shopping-cart"></i> Buy Now</button>
+
+												</form>
+
+											</div>
+										</div><!-- /.modal-content -->
+									</div><!-- /.modal-dialog -->
+								</div><!-- /.modal -->
+<?php $no++;endforeach;?>
