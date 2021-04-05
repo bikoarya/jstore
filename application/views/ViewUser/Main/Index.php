@@ -20,7 +20,6 @@
 							</div>
 							<div class="col-sm-6">
 								<img src="<?= base_url('assets/images/results/Carosel1.jpg') ?>" class="girl img-responsive" alt="" />
-								<!-- <img src="images/home/pricing.png"  class="pricing" alt="" /> -->
 							</div>
 						</div>
 						<div class="item">
@@ -33,7 +32,6 @@
 							</div>
 							<div class="col-sm-6">
 								<img src="<?= base_url('assets/images/results/Carosel2.jpg') ?>" class="girl img-responsive" alt="" />
-								<!-- <img src="images/home/pricing.png" class="pricing" alt="" /> -->
 							</div>
 						</div>
 
@@ -46,7 +44,6 @@
 							</div>
 							<div class="col-sm-6">
 								<img src="<?= base_url('assets/images/results/Carosel3.jpg') ?>" class="girl img-responsive" alt="" />
-								<!-- <img src="images/home/pricing.png" class="pricing" alt="" /> -->
 							</div>
 						</div>
 
@@ -73,60 +70,6 @@
 			<?php
 			$this->load->view('ViewUser/Templates/Category_left');
 			?>
-<<<<<<< Updated upstream
-				
-				
-					
-					<div class="category-tab"><!--category-tab-->
-						<div class="col-sm-9"></div>
-						<div class="col-sm-3">
-						<div class="search_box pull-right">
-							<input type="text" placeholder="Search"/>
-							
-						</div>
-					</div>
-						<div class="col-sm-12">
-							<br>
-							<ul class="nav nav-tabs">
-                            <?php 
-                            $no=1;
-                            foreach ($kategori as $ctg) :
-                                $active = "";
-                                if ($no==1) {
-                                    $active="active";
-                                }
-                                $name = str_replace(" ", "", $ctg['nama_kategori']);
-                                  ?>
-
-                                <li class="<?=$active?>"><a href="#<?=$name?>" data-toggle="tab"><?=$ctg['nama_kategori']?></a></li>
-                            <?php $no++; endforeach; ?>
-								
-							</ul>
-						</div>
-                        <div class="tab-content">
-
-                        <?php 
-                            $tes=1;
-                            $no=1;
-                        foreach ($kategori as $ctg) :
-                            $active="";
-                            if ($no==1) {
-                                $active = "active in";
-                            }
-                            $name = str_replace(" ", "", $ctg['nama_kategori']);
-                        ?>
-                            
-							<div class="tab-pane fade <?=$active?>" id="<?=$name?>" >
-							
-							<?php 
-                            
-                            $user = $this->db->get_where('t_barang', ['id_kategori' => $ctg['id_kategori']])->result_array();
-
-                                foreach ($user as $barangmuncul) :
-                                    $tes++;
-                            ?>	
-								
-=======
 
 
 
@@ -177,7 +120,6 @@
 								$tes++;
 							?>
 
->>>>>>> Stashed changes
 								<div class="col-sm-3">
 									<div class="product-image-wrapper">
 										<div class="single-products">
@@ -255,39 +197,7 @@
 											</div>
 										</div><!-- /.modal-content -->
 									</div><!-- /.modal-dialog -->
-<<<<<<< Updated upstream
-								  </div><!-- /.modal -->
-                                
-                                <?php endforeach; ?>
-								<?php
-								$count = $this->db->get_where('t_barang', ['id_kategori' => $ctg['id_kategori']])->num_rows();
-									if($count==0){
-									?>
-										<div class="col-sm-12">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-                                     		 <h2 style="margin-top:80px;margin-bottom:80px;">Barang Kosong!</h2>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-									<?php }?>
-                                </div>
-                        <?php $no++;endforeach; ?>
-                                
-							
-							
-                                </div>
-							
-						
-					</div><!--/category-tab-->
-				
-					<div class="col-md-3">
-=======
 								</div><!-- /.modal -->
->>>>>>> Stashed changes
 
 							<?php endforeach; ?>
 
@@ -332,64 +242,61 @@
 											</div>
 										</div>
 									</div>
-<<<<<<< Updated upstream
-                                    <?php };$lim++;endforeach;?>    
-									
-								</div>
-                                <div class="item">	
-									<?php 
-                                    $lim=1;
-                                    foreach($barang as $brg):
-                                    if($lim<4||$lim>6){
-                                        
-                                    }
-                                    else{
-                                    ?>
-                                        <div class="col-sm-4">
-=======
-							<?php };
-								$lim++;
-							endforeach; ?>
+									<<<<<<< Updated upstream <?php };
+															$lim++;
+														endforeach; ?> </div>
+										<div class="item">
+											<?php
+											$lim = 1;
+											foreach ($barang as $brg) :
+												if ($lim < 4 || $lim > 6) {
+												} else {
+											?>
+													<div class="col-sm-4">
+														=======
+												<?php };
+												$lim++;
+											endforeach; ?>
 
-						</div>
-						<div class="item">
-							<?php
-							$lim = 1;
-							foreach ($barang as $brg) :
-								if ($lim < 4) {
-								} else {
-							?>
-									<div class="col-sm-4">
->>>>>>> Stashed changes
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="<?= base_url('assets/images/results/' . $brg['gambar']) ?>" alt="" />
-													<h2>Rp.<?= $brg['harga'] ?></h2>
-													<p><?= $brg['nama_barang'] ?></p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-												</div>
+													</div>
+													<div class="item">
+														<?php
+														$lim = 1;
+														foreach ($barang as $brg) :
+															if ($lim < 4) {
+															} else {
+														?>
+																<div class="col-sm-4">
+																	>>>>>>> Stashed changes
+																	<div class="product-image-wrapper">
+																		<div class="single-products">
+																			<div class="productinfo text-center">
+																				<img src="<?= base_url('assets/images/results/' . $brg['gambar']) ?>" alt="" />
+																				<h2>Rp.<?= $brg['harga'] ?></h2>
+																				<p><?= $brg['nama_barang'] ?></p>
+																				<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+																			</div>
 
-											</div>
+																		</div>
+																	</div>
+																</div>
+														<?php };
+															$lim++;
+														endforeach; ?>
+
+													</div>
 										</div>
-									</div>
-							<?php };
-								$lim++;
-							endforeach; ?>
-
+										<a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+											<i class="fa fa-angle-left"></i>
+										</a>
+										<a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+											<i class="fa fa-angle-right"></i>
+										</a>
 						</div>
 					</div>
-					<a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-						<i class="fa fa-angle-left"></i>
-					</a>
-					<a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-						<i class="fa fa-angle-right"></i>
-					</a>
+					<!--/recommended_items-->
+
 				</div>
 			</div>
-			<!--/recommended_items-->
-
 		</div>
-	</div>
-	</div>
 </section>
