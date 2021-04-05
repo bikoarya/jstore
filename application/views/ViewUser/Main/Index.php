@@ -160,11 +160,9 @@
 																	</div>
 																</div>
 																<div class="col-sm-3">
-																	<h2>Rp.<?= $barangmuncul['harga'] ?></h2>
-																	<p><?= $barangmuncul['nama_barang'] ?></p>
-																	<br>
-
-																	<p class="text-danger" style="font-weight: bold;">Deskripsi :</p>
+																	<h1 style="font-weight: bold; color: #FEA125"><?= $barangmuncul['nama_barang'] ?></h1>
+																	<h4 style="margin-bottom: 30px">Rp. <?= $barangmuncul['harga'] ?></h4>
+																	<h5 style="font-weight: bold;">Deskripsi :</h5>
 																	<p><?= $barangmuncul['deskripsi'] ?></p>
 																	<p class="text-title" style="font-weight: bold;">Stok : <?= $barangmuncul['stok'] ?></p>
 
@@ -188,8 +186,7 @@
 												} ?>
 												<form action="<?= site_url('User/Checkout'); ?>" method="POST" enctype="multipart/form-data">
 													<input type="text" value="<?= $barangmuncul['id_barang'] ?>" name="id_barang" hidden>
-													<input type="number" min="1" max="<?= $barangmuncul['stok'] ?>" value="1" required="true" placeholder="QTY" name="qty" class="input-list-group-item-action" style="padding:5px;margin-right:5px;" <?= $qty ?>>
-													<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+													<input type="number" min="1" max="<?= $barangmuncul['stok'] ?>" value="1" required="true" placeholder="QTY" name="qty" class="input-list-group-item-action" style="padding:5px;margin-left:-85px; position: absolute;" <?= $qty ?>>
 													<button class="btn btn-default add-to-cart" <?= $button ?>><i class="fa fa-shopping-cart"></i> Buy Now</button>
 
 												</form>
@@ -241,62 +238,60 @@
 
 											</div>
 										</div>
-									</div>
-									<<<<<<< Updated upstream <?php };
-															$lim++;
-														endforeach; ?> </div>
-										<div class="item">
-											<?php
-											$lim = 1;
-											foreach ($barang as $brg) :
-												if ($lim < 4 || $lim > 6) {
-												} else {
-											?>
-													<div class="col-sm-4">
-														=======
-												<?php };
-												$lim++;
-											endforeach; ?>
-
-													</div>
-													<div class="item">
-														<?php
-														$lim = 1;
-														foreach ($barang as $brg) :
-															if ($lim < 4) {
-															} else {
-														?>
-																<div class="col-sm-4">
-																	>>>>>>> Stashed changes
-																	<div class="product-image-wrapper">
-																		<div class="single-products">
-																			<div class="productinfo text-center">
-																				<img src="<?= base_url('assets/images/results/' . $brg['gambar']) ?>" alt="" />
-																				<h2>Rp.<?= $brg['harga'] ?></h2>
-																				<p><?= $brg['nama_barang'] ?></p>
-																				<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-																			</div>
-
-																		</div>
-																	</div>
-																</div>
-														<?php };
-															$lim++;
-														endforeach; ?>
-
-													</div>
-										</div>
-										<a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-											<i class="fa fa-angle-left"></i>
-										</a>
-										<a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-											<i class="fa fa-angle-right"></i>
-										</a>
+									</div> <?php };
+										$lim++;
+									endforeach; ?>
 						</div>
-					</div>
-					<!--/recommended_items-->
+						<div class="item">
+							<?php
+							$lim = 1;
+							foreach ($barang as $brg) :
+								if ($lim < 4 || $lim > 6) {
+								} else {
+							?>
+									<div class="col-sm-4">
+								<?php };
+								$lim++;
+							endforeach; ?>
 
+									</div>
+									<div class="item">
+										<?php
+										$lim = 1;
+										foreach ($barang as $brg) :
+											if ($lim < 4) {
+											} else {
+										?>
+												<div class="col-sm-4">
+													<div class="product-image-wrapper">
+														<div class="single-products">
+															<div class="productinfo text-center">
+																<img src="<?= base_url('assets/images/results/' . $brg['gambar']) ?>" alt="" />
+																<h2>Rp.<?= $brg['harga'] ?></h2>
+																<p><?= $brg['nama_barang'] ?></p>
+																<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+															</div>
+
+														</div>
+													</div>
+												</div>
+										<?php };
+											$lim++;
+										endforeach; ?>
+
+									</div>
+						</div>
+						<a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+							<i class="fa fa-angle-left"></i>
+						</a>
+						<a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+							<i class="fa fa-angle-right"></i>
+						</a>
+					</div>
 				</div>
+				<!--/recommended_items-->
+
 			</div>
 		</div>
+	</div>
 </section>

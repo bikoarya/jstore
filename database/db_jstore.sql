@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 22, 2021 at 11:46 PM
+-- Generation Time: Apr 05, 2021 at 03:07 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -66,11 +66,11 @@ CREATE TABLE `t_barang` (
 --
 
 INSERT INTO `t_barang` (`id_barang`, `nama_barang`, `deskripsi`, `id_kategori`, `harga`, `gambar`, `stok`) VALUES
-(16, 'Scarlett', 'Mencerahkan wajah', 2, 150000, 'IMG_20201117_121532_563.jpg', 150),
-(17, 'Yujaniacin', 'Menghilangkan jerawat', 2, 75000, 'IMG_20201117_182611_076.jpg', 50),
-(18, 'Himalaya', 'Taek cok', 1, 250000, 'himalaya.png', 20),
-(19, 'Doddy Jancok', 'asfsafas', 3, 500000, 'IMG_20201114_203554_415.jpg', 3),
-(20, 'adsafsa', 'asfsa', 2, 3000000, 'IMG_20201117_180250_212.jpg', 7);
+(22, 'Himalaya', 'Mencerahkan wajah', 2, 150000, 'himalaya.png', 15),
+(24, 'Yuja Niacin', 'Melembabkan kulit ', 6, 75000, 'IMG_20201117_182623_135.jpg', 10),
+(26, 'Beras Kencur', 'Menyehatkan badan', 2, 5000, 'IMG_20201031_092910_766.jpg', 20),
+(27, 'Rinso', 'Membersihkan noda membandel', 1, 1000, 'IMG_20201031_092910_764.jpg', 10),
+(28, 'Kiranti', 'Minuman berkhasiat rendah', 3, 4000, 'IMG_20201031_092910_765.jpg', 30);
 
 -- --------------------------------------------------------
 
@@ -92,6 +92,30 @@ INSERT INTO `t_kategori` (`id_kategori`, `nama_kategori`) VALUES
 (2, 'Skincare'),
 (3, 'Hair Care'),
 (6, 'Body Care');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t_pesanan`
+--
+
+CREATE TABLE `t_pesanan` (
+  `id_pesanan` int(11) NOT NULL,
+  `id_transaksi` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `t_pesanan`
+--
+
+INSERT INTO `t_pesanan` (`id_pesanan`, `id_transaksi`) VALUES
+(73, 31),
+(74, 32),
+(75, 31),
+(76, 36),
+(77, 36),
+(78, 36),
+(79, 36);
 
 -- --------------------------------------------------------
 
@@ -133,7 +157,7 @@ CREATE TABLE `t_transaksi` (
 --
 
 INSERT INTO `t_transaksi` (`id_transaksi`, `id_barang`, `qty`, `nama`, `telp`, `alamat`, `tanggal`) VALUES
-(5, 18, 2, 'Biko Arya Maulana', '085233496058', 'Malang, Kedungkandang, Malang, Jawa Timur', '2021-03-21');
+(36, 26, 1, 'Biko Arya Maulana', '6281259464280', 'Bumiayu, Kedungkandang, Malang, Jawa Timur', '2021-04-05');
 
 --
 -- Indexes for dumped tables
@@ -156,6 +180,12 @@ ALTER TABLE `t_barang`
 --
 ALTER TABLE `t_kategori`
   ADD PRIMARY KEY (`id_kategori`);
+
+--
+-- Indexes for table `t_pesanan`
+--
+ALTER TABLE `t_pesanan`
+  ADD PRIMARY KEY (`id_pesanan`);
 
 --
 -- Indexes for table `t_role`
@@ -183,13 +213,19 @@ ALTER TABLE `t_admin`
 -- AUTO_INCREMENT for table `t_barang`
 --
 ALTER TABLE `t_barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `t_kategori`
 --
 ALTER TABLE `t_kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `t_pesanan`
+--
+ALTER TABLE `t_pesanan`
+  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `t_role`
@@ -201,7 +237,7 @@ ALTER TABLE `t_role`
 -- AUTO_INCREMENT for table `t_transaksi`
 --
 ALTER TABLE `t_transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
