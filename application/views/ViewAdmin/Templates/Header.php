@@ -27,7 +27,6 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
     <!-- endinject -->
-    <link rel="shortcut icon" href="<?= base_url('assets/images/favicon.png') ?>" />
 
     <script defer type="text/javascript">
         var base_url = '<?= base_url() ?>';

@@ -5,12 +5,16 @@ class Barang extends CI_Controller
 {
     public function index()
     {
-        $data['kategori'] = $this->model->get('t_kategori');
-        $data['title'] = 'Jstore | Barang';
-        $this->load->view('ViewAdmin/Templates/Header', $data);
-        $this->load->view('ViewAdmin/Templates/Menu');
-        $this->load->view('ViewAdmin/Main/Barang');
-        $this->load->view('ViewAdmin/Templates/Footer');
+        if ($this->session->userdata('nama_lengkap') != null) {
+            $data['kategori'] = $this->model->get('t_kategori');
+            $data['title'] = 'Jstore | Barang';
+            $this->load->view('ViewAdmin/Templates/Header', $data);
+            $this->load->view('ViewAdmin/Templates/Menu');
+            $this->load->view('ViewAdmin/Main/Barang');
+            $this->load->view('ViewAdmin/Templates/Footer');
+        } else {
+            redirect('Notfound');
+        }
     }
 
     public function insert()
@@ -77,5 +81,16 @@ class Barang extends CI_Controller
         }
 
         return $output;
+    }
+
+    public function delete()
+    {
+        $id = $this->input->post('id');
+        $this->db->where('id_barang', $id);
+        $query = $this->db->get('t_barang');
+        $row = $query->row();
+
+        unlink("./assets/images/results/$row->gambar");
+        $this->model->delete('t_barang', ['id_barang' => $id]);
     }
 }

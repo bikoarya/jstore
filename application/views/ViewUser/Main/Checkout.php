@@ -37,16 +37,28 @@
                 <div class="signup-form">
                     <!--sign up form-->
                     <h2 style="font-weight: bold;">Checkout</h2>
-                    <form action="<?= site_url('User/Checkout/insert') ?>" method="POST">
-                        <input type="text" placeholder="Nama" name="nama" autocomplete="off" required>
-                        <input type="text" placeholder="Telp(WA)" name="telp" autocomplete="off" required>
-                        <input type="text" placeholder="Alamat" name="alamat" autocomplete="off" required>
-                        <input type="text" placeholder="Kecamatan" name="kecamatan" autocomplete="off" required>
-                        <input type="text" placeholder="Kota" name="kota" autocomplete="off" required>
-                        <input type="text" placeholder="Provinsi" name="provinsi" autocomplete="off" required>
-                        <input type="hidden" value="<?= $barang['id_barang'] ?>" name="id_barang">
-                        <input type="hidden" value="<?= $qty ?>" name="qty">
-                        <button type="submit" class="btn btn-default">Kirim</button>
+                    <form id="formCheckout">
+                        <div class="form-group">
+                            <input type="text" name="namaC" id="namaC" placeholder="Nama lengkap" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="telpC" id="telpC" placeholder="Nomor telepon (WA)" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="alamatC" id="alamatC" placeholder="Alamat" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="kecamatanC" id="kecamatanC" placeholder="Kecamatan" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="kotaC" id="kotaC" placeholder="Kota / kabupaten" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="provinsiC" id="provinsiC" placeholder="Provinsi" autocomplete="off">
+                        </div>
+                        <input type="hidden" value="<?= $barang['id_barang'] ?>" name="id_barangC" id="id_barangC">
+                        <input type="hidden" value="<?= $qty ?>" name="qtyC" id="qtyC">
+                        <button type="submit" class="btn btn-default" id="checkout">Kirim</button>
                     </form>
                 </div>
                 <!--/sign up form-->

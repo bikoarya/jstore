@@ -25,16 +25,12 @@ class Checkout extends CI_Controller
     }
     public function insert()
     {
-        $nama     = htmlspecialchars($this->input->post('nama'));
-        $telp     = htmlspecialchars($this->input->post('telp'));
-        $alamat   = htmlspecialchars($this->input->post('alamat'));
-        $kecamatan = htmlspecialchars($this->input->post('kecamatan'));
-        $kota     = htmlspecialchars($this->input->post('kota'));
-        $provinsi = htmlspecialchars($this->input->post('provinsi'));
-        $qty      =  $this->input->post('qty');
-        $id_barang =  $this->input->post('id_barang');
-        $alamat_db = $alamat . ", " . $kecamatan . ", " . $kota . ", " . $provinsi;
-        $tanggal  = date('Y-m-d');
+        $telp = htmlspecialchars($this->input->post('telpC'));
+        $alamat = htmlspecialchars($this->input->post('alamatC'));
+        $kecamatan = htmlspecialchars($this->input->post('kecamatanC'));
+        $kota     = htmlspecialchars($this->input->post('kotaC'));
+        $provinsi = htmlspecialchars($this->input->post('provinsiC'));
+        $cok = $alamat . ", " . $kecamatan . ", " . $kota . ", " . $provinsi;
 
         // kadang ada penulisan no hp 0811 239 345
         $telp = str_replace(" ", "", $telp);
@@ -56,17 +52,15 @@ class Checkout extends CI_Controller
                 $telp = '62' . substr(trim($telp), 1);
             }
         }
-
-
         $data = [
-            'id_barang' => $id_barang,
-            'qty' => $qty,
-            'nama' => $nama,
+            'id_barang' => $this->input->post('id_barangC'),
+            'qty' => $this->input->post('qtyC'),
+            'nama' => htmlspecialchars($this->input->post('namaC')),
             'telp' => $telp,
-            'alamat' => $alamat_db,
-            'tanggal' => $tanggal,
+            'alamat' => $cok,
+            'tanggal' => date('Y-m-d')
         ];
+
         $this->db->insert('t_transaksi', $data);
-        redirect('User/Home');
     }
 }

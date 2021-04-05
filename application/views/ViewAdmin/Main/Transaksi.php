@@ -9,12 +9,13 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Customer</th>
+                                <th style="white-space: nowrap;">Nama Customer</th>
                                 <th>No. Telpon</th>
                                 <th>Alamat</th>
-                                <th>Nama Barang</th>
+                                <th style="white-space: nowrap;">Nama Barang</th>
                                 <th>Qty</th>
                                 <th>Tanggal</th>
+                                <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>

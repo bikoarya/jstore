@@ -22,7 +22,6 @@
                                 <li class="nav-item"> <a class="nav-link" href="<?= site_url('Master/Admin') ?>">Admin</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="<?= site_url('Master/Role') ?>">Role</a></li>
                             <?php } ?>
-                            <li class="nav-item"> <a class="nav-link" href="<?= site_url('Master/Customer') ?>">Customer</a></li>
                             <li class="nav-item"> <a class="nav-link" href="<?= site_url('Master/Barang') ?>">Barang</a></li>
                             <li class="nav-item"> <a class="nav-link" href="<?= site_url('Master/Kategori') ?>">Kategori</a></li>
                         </ul>

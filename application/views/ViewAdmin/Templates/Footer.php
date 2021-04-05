@@ -28,6 +28,8 @@
 <!-- End custom js for this page-->
 <!-- JQuery Validate -->
 <script src="<?= base_url('assets/jquery-validation/jquery.validate.min.js'); ?>"></script>
+<!-- JQuery UI -->
+<script src="<?= base_url('assets/jquery-ui/jquery-ui.min.js') ?>"></script>
 <!-- Select 2 -->
 <script src="<?= base_url('assets/select2/js/select2.min.js') ?>"></script>
 <!-- Toastr -->
@@ -36,8 +38,6 @@
 <script src="<?= base_url('assets/sweetalert2/sweetalert2.all.min.js'); ?>"></script>
 <!-- Date Picker -->
 <script src="<?= base_url('assets/datepicker/dist/js/bootstrap-datepicker.min.js'); ?>"></script>
-<!-- JQuery UI -->
-<script src="<?= base_url('assets/jquery-ui/jquery-ui.min.js') ?>"></script>
 <!-- Main JS -->
 <script src="<?= base_url('assets/js/custom.js'); ?>"></script>
 <script src="<?= base_url('assets/js/script.js'); ?>"></script>

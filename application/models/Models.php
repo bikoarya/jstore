@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Models extends CI_Model
 {
-    function makeup($id) 
+    function makeup($id)
     {
         $this->db->select('*');
         $this->db->where('id_kategori=', $id);
@@ -55,5 +55,15 @@ class Models extends CI_Model
     {
         $this->db->select('*');
         return $this->db->get('t_barang')->num_rows();
+    }
+    public function countKategori()
+    {
+        $this->db->select('*');
+        return $this->db->get('t_kategori')->num_rows();
+    }
+    public function countTransaksi()
+    {
+        $this->db->select('*');
+        return $this->db->get('t_transaksi')->num_rows();
     }
 }

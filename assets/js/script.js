@@ -658,4 +658,204 @@ $(document).on('click', '.editBarang', function () {
 	$("#editGambar").val(gambar);
 });
 
+$("#checkout").click(function() {
+	$("#formCheckout").validate({
+		rules: {
+			namaC: {
+				required: true
+			},
+			telpC: {
+				required: true
+			},
+			alamatC: {
+				required: true
+			},
+			kecamatanC: {
+				required: true
+			},
+			kotaC: {
+				required: true
+			},
+			provinsiC: {
+				required: true
+			}
+		},
+		messages: {
+			namaC: {
+				required: "Masukkan nama anda."
+			},
+			telpC: {
+				required: "Masukkan nomor telepon."
+			},
+			alamatC: {
+				required: "Masukkan alamat."
+			},
+			kecamatanC: {
+				required: "Masukkan kecamatan."
+			},
+			kotaC: {
+				required: "Masukkan kota."
+			},
+			provinsiC: {
+				required: "Masukkan provinsi."
+			}
+		},
+		errorElement: "span",
+		errorPlacement: function(error, element) {
+			error.addClass("invalid-feedback");
+			element.closest(".form-group").append(error);
+		},
+		unhighlight: function(element, errorClass, validClass) {
+			$(element).removeClass("is-invalid");
+		},
+		submitHandler: function(form) {
+			let id_barangC = $("#id_barangC").val();
+			let qtyC = $("#qtyC").val();
+			let namaC = $("#namaC").val();
+			let telpC = $("#telpC").val();
+			let alamatC = $("#alamatC").val();
+			let kecamatanC = $("#kecamatanC").val();
+			let kotaC = $("#kotaC").val();
+			let provinsiC = $("#provinsiC").val();
+
+			$.ajax({
+				type: "POST",
+				url: site_url + "User/Checkout/insert",
+				
+				data: {
+					namaC: namaC,
+					telpC: telpC,
+					alamatC: alamatC,
+					kecamatanC: kecamatanC,
+					kotaC: kotaC,
+					provinsiC: provinsiC,
+					qtyC: qtyC,
+					id_barangC: id_barangC
+				},
+				success: function(data) {
+					$("#namaC").val("");
+					$("#telpC").val("");
+					$("#alamatC").val("");
+					$("#kecamatanC").val("");
+					$("#kotaC").val("");
+					$("#provinsiC").val("");
+					
+					Swal.fire({
+						title: 'Berhasil!',
+						text:'Silahkan tunggu konfirmasi melalui WA',
+						icon: 'success',
+					}).then((result) => {
+						if (result.value) {
+							window.location.href = site_url + "Home";
+						}
+					});
+					}
+			});
+			// console.log(data);
+		}
+	});
+});
+
+$(document).on('click', '.sendWA', function () {
+	let id_transaksiP = $(this).attr('data-id_transaksi');
+
+	$.ajax({
+		type: "POST",
+		url: site_url + "Master/Transaksi/inserts",
+		
+		data: {
+			id_transaksiP: id_transaksiP
+		},
+		success: function(data) {
+		}
+	});
+});
+
+// Hapus Transaksi
+$("#dataTransaksi").on('click', '.hapusTransaksi', function () {
+	var id = $(this).data("id_transaksi");
+	const swalWithBootstrapButtons = Swal.mixin({
+		customClass: {
+			confirmButton: 'btn btn-primary',
+			cancelButton: 'btn btn-light mr-3'
+		},
+		buttonsStyling: false
+	})
+
+	swalWithBootstrapButtons.fire({
+		title: 'Apakah Anda Yakin?',
+		text: "Menghapus Data",
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonText: 'Ya, Hapus',
+		cancelButtonText: 'Batal',
+		reverseButtons: true
+	}).then((result) => {
+		if (result.value) {
+
+			$.ajax({
+				type: "POST",
+				url: site_url + "Master/Transaksi/delete",
+				data: {
+					id: id
+				},
+				success: function (data) {
+					
+					Swal.fire({
+						title: 'Berhasil!',
+						text:'Data berhasil dihapus.',
+						icon: 'success',
+					}).then((result) => {
+						if (result.value) {
+							location.reload();
+						}
+					});
+				}
+			});
+		}
+	});
+});
+
+// Hapus Barang
+$("#dataBarang").on('click', '.hapusBarang', function () {
+	var id = $(this).data("id_barang");
+	const swalWithBootstrapButtons = Swal.mixin({
+		customClass: {
+			confirmButton: 'btn btn-primary',
+			cancelButton: 'btn btn-light mr-3'
+		},
+		buttonsStyling: false
+	})
+
+	swalWithBootstrapButtons.fire({
+		title: 'Apakah Anda Yakin?',
+		text: "Menghapus Data",
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonText: 'Ya, Hapus',
+		cancelButtonText: 'Batal',
+		reverseButtons: true
+	}).then((result) => {
+		if (result.value) {
+
+			$.ajax({
+				type: "POST",
+				url: site_url + "Master/Barang/delete",
+				data: {
+					id: id
+				},
+				success: function (data) {
+					$("#dataBarang").load(site_url + "Master/Barang/showData");
+
+					Swal.fire(
+						'Berhasil!',
+						'Data berhasil dihapus.',
+						'success'
+					)
+				}
+			});
+		}
+	});
+});
+
 $("#dataTransaksi").load(site_url + "Master/Transaksi/showData");

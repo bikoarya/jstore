@@ -5,12 +5,16 @@ class Admin extends CI_Controller
 {
     public function index()
     {
-        $data['title'] = 'Jstore | Admin';
-        $data['role'] = $this->model->get('t_role');
-        $this->load->view('ViewAdmin/Templates/Header', $data);
-        $this->load->view('ViewAdmin/Templates/Menu');
-        $this->load->view('ViewAdmin/Main/Admin');
-        $this->load->view('ViewAdmin/Templates/Footer');
+        if ($this->session->userdata('nama_lengkap') != null) {
+            $data['title'] = 'Jstore | Admin';
+            $data['role'] = $this->model->get('t_role');
+            $this->load->view('ViewAdmin/Templates/Header', $data);
+            $this->load->view('ViewAdmin/Templates/Menu');
+            $this->load->view('ViewAdmin/Main/Admin');
+            $this->load->view('ViewAdmin/Templates/Footer');
+        } else {
+            redirect('Notfound');
+        }
     }
 
     public function insert()
